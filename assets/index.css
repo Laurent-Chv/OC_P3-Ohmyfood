@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**/ /**/ /**/ /**/ /**/ /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -321,7 +322,228 @@ ul {
   font-family: "typography des contenus";
 }
 
-/**/ /**/ /**/
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+/**/ /**/
+/************************************************************/
+/**************************PLACEHOLDER**************************/
+/************************************************************/
+.stages__item, .stages {
+  margin: auto;
+  padding: 50px 0;
+}
+.stages__item__title, .stages__title {
+  font-size: 1.5em;
+  width: 90%;
+  margin: 0 auto 30px;
+}
+.stages__item__item, .stages__item {
+  width: 90%;
+  margin: 0 auto;
+  padding-left: 5%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+.stages__item__itemNb, .stages__itemNb {
+  position: absolute;
+}
+.stages__item__itemNb > p.stage-nb, .stages__itemNb > p.stage-nb {
+  position: relative;
+  top: 5px;
+  right: 175px;
+  background-color: #9356DC;
+  color: #fff;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  font-size: 1em;
+  display: flex;
+  justify-content: center;
+  line-height: 1.7em;
+}
+.stages__item__itemBtn, .stages__itemBtn {
+  width: 350px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(245, 245, 245);
+  border-radius: 20px;
+  box-shadow: 0px 3px 10px rgb(204, 203, 203);
+  transition: all 1s;
+}
+.stages__item__itemBtn > i, .stages__itemBtn > i {
+  color: rgb(109, 106, 106);
+  font-size: 1.2em;
+  width: 40px;
+  margin-left: 35px;
+}
+.stages__item__itemBtn p.stage-txt, .stages__itemBtn p.stage-txt {
+  font-weight: bold;
+}
+
+/************************************************************/
+/**************************MIXIN**************************/
+/************************************************************/
+/************************************************************/
+/**************************FUNCTION**************************/
+/************************************************************/
+/******VARIABLES******/
+/*************************************
+VARIABLES PARAMÉTRABLE DU BLOC BEM
+EX: 
+box-shadow(color), background, border-color
+*************************************/
+/************************************************************/
+/**************************BLOC BEM (extension)**************************/
+/************************************************************/
+.stages__itemBtn--lightness, .stages__itemBtn:hover {
+  background-color: #f2eafb;
+}
+.stages__itemBtn--lightness > i, .stages__itemBtn:hover > i {
+  color: #9356DC;
+}
+
+.stages__item__itemBtn--lightness {
+  background-color: #f2eafb;
+}
+.stages__item__itemBtn--lightness > i {
+  color: #9356DC;
+}
+/**********************************/
+/************************************************************/
+/**************************PLACEHOLDER**************************/
+/************************************************************/
+.restaurants {
+  background-color: rgb(245, 245, 245);
+  margin: auto;
+  padding: 50px 0;
+}
+.restaurants__title {
+  font-size: 1.7em;
+  width: 90%;
+  margin: 0 auto 30px;
+}
+.restaurants__wrapper {
+  width: 90%;
+  margin: auto;
+}
+.restaurants__wrapper > div {
+  background-color: #fff;
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0px 3px 10px rgb(204, 203, 203);
+  margin-bottom: 25px;
+}
+.restaurants__card {
+  color: #000;
+  text-decoration: none;
+  width: 100%;
+}
+.restaurants__cardImgWrapper {
+  position: relative;
+}
+.restaurants__cardImgWrapper > div.img-restaurant {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  border-radius: 15px 15px 0 0;
+}
+.restaurants__cardImgWrapper > div.img-restaurant > img {
+  width: 101%;
+  height: 101%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+.restaurants__cardImgWrapper > div.img-content > p.new-restaurant {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 7px 12px;
+  border-radius: 3px;
+}
+.restaurants__cardBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+.restaurants__cardBody > div.restaurant-txt > h4 {
+  margin: 5px 0;
+}
+.restaurants__cardBody > div.restaurant-txt > p {
+  margin: 5px 0;
+}
+.restaurants__cardBody > div.restaurant-heart {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.restaurants__cardBody > div.restaurant-heart i.heart-primary {
+  font-size: 1.5em;
+  margin: 0;
+  padding-right: 15px;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.restaurants__cardBody > div.restaurant-heart i.heart-primary:hover i.heart-secondary {
+  clip: rect(0px, 24px, 24px, 0px);
+  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.restaurants__cardBody > div.restaurant-heart i.heart-primary > i.heart-secondary {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding-right: 15px;
+  clip: rect(24px, 24px, 24px, 0px);
+  transition: clip 1s;
+}
+
+/************************************************************/
+/**************************MIXIN**************************/
+/************************************************************/
+/************************************************************/
+/**************************FUNCTION**************************/
+/************************************************************/
+/******VARIABLES******/
+/*************************************
+VARIABLES PARAMÉTRABLE DU BLOC BEM
+EX: 
+box-shadow(color), background, border-color
+*************************************/
+/************************************************************/
+/**************************BLOC BEM (extension)**************************/
+/************************************************************/
+.restaurants__cardImgWrapper .new-restaurant {
+  background-color: #99E2D0;
+  color: #2c9c81;
+}
+/**/
 /***********************************/
 /***********************************/
 /***********************************/
@@ -608,6 +830,7 @@ body > div.spinner-container {
   text-align: center;
   background: #fff;
   animation: slide 3s 1 forwards;
+  transition: all 1s;
 }
 @keyframes slide {
   from {
@@ -639,7 +862,6 @@ body > div.spinner-container > div.loading {
   border-top-color: #FF79DA;
   animation: spin 1s ease-out infinite;
   -webkit-animation: spin 1s ease-out infinite;
-  transition: all 1s;
 }
 @-webkit-keyframes spin {
   0% {
@@ -727,158 +949,6 @@ body main > section.description > a.btn-primary:hover {
   box-shadow: 0px 5px 12px rgb(128, 126, 126);
   transition: all 0.5s;
   background: linear-gradient(to bottom right, #FF79DA, #FF79DA, #9356DC);
-}
-body main > section.stages {
-  margin: auto;
-  padding: 50px 0;
-}
-body main > section.stages > h3 {
-  font-size: 1.5em;
-  width: 90%;
-  margin: 0 auto 30px;
-}
-body main > section.stages > div.stage {
-  width: 90%;
-  margin: 0 auto;
-  padding-left: 5%;
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-bottom: 25px;
-}
-body main > section.stages > div.stage > div.nb-stage {
-  position: absolute;
-}
-body main > section.stages > div.stage > div.nb-stage > p.stage-nb {
-  position: relative;
-  top: 5px;
-  right: 175px;
-  background-color: #9356DC;
-  color: #fff;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  font-size: 1em;
-  display: flex;
-  justify-content: center;
-  line-height: 1.7em;
-}
-body main > section.stages > div.stage > div.btn-stage {
-  width: 350px;
-  height: 70px;
-  display: flex;
-  align-items: center;
-  background-color: rgb(245, 245, 245);
-  border-radius: 20px;
-  box-shadow: 0px 3px 10px rgb(204, 203, 203);
-}
-body main > section.stages > div.stage > div.btn-stage > i {
-  color: rgb(109, 106, 106);
-  font-size: 1.2em;
-  width: 40px;
-  margin-left: 35px;
-}
-body main > section.stages > div.stage > div.btn-stage p.stage-txt {
-  font-weight: bold;
-}
-body main > section.restaurants {
-  background-color: rgb(245, 245, 245);
-  margin: auto;
-  padding: 50px 0;
-}
-body main > section.restaurants > h3 {
-  font-size: 1.7em;
-  width: 90%;
-  margin: 0 auto 30px;
-}
-body main > section.restaurants > div.restaurants-wrapper {
-  width: 90%;
-  margin: auto;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card {
-  background-color: #fff;
-  display: flex;
-  flex-grow: 1;
-  width: 100%;
-  border-radius: 20px;
-  box-shadow: 0px 3px 10px rgb(204, 203, 203);
-  margin-bottom: 25px;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a {
-  color: #000;
-  text-decoration: none;
-  width: 100%;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.img-wrapper {
-  position: relative;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.img-wrapper > div.img-restaurant {
-  position: relative;
-  overflow: hidden;
-  height: 200px;
-  border-radius: 15px 15px 0 0;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.img-wrapper > div.img-restaurant > img {
-  width: 101%;
-  height: 101%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.img-wrapper > div.img-content > p.new-restaurant {
-  position: absolute;
-  top: 0;
-  right: 15px;
-  background-color: #99E2D0;
-  font-size: 0.9em;
-  padding: 5px 10px;
-  border-radius: 3px;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.restaurant-body {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 10px;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.restaurant-body > div.restaurant-txt > h4 {
-  margin: 5px 0;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.restaurant-body > div.restaurant-txt > p {
-  margin: 5px 0;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.restaurant-body > div.restaurant-heart {
-  display: flex;
-  align-items: center;
-  padding-bottom: 10px;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.restaurant-body > div.restaurant-heart i.heart-primary {
-  font-size: 1.5em;
-  margin: 0;
-  padding-right: 15px;
-  position: relative;
-  width: 24px;
-  height: 24px;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.restaurant-body > div.restaurant-heart i.heart-primary:hover i.heart-secondary {
-  clip: rect(0px, 24px, 24px, 0px);
-  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
-  background-clip: border-box;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-body main > section.restaurants > div.restaurants-wrapper > div.restaurant-card > a > div.restaurant-body > div.restaurant-heart i.heart-primary > i.heart-secondary {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
-  padding-right: 15px;
-  clip: rect(24px, 24px, 24px, 0px);
-  transition: clip 1s;
 }
 body footer {
   background-color: rgb(53, 53, 53);
