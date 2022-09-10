@@ -1,9 +1,4 @@
-
-
-/************************************************************/
-/**************************PLACEHOLDER**************************/
-/************************************************************/
-%restaurants{
+.restaurants{
    background-color: $grey-color;
    margin: auto;
    padding: 50px 0;
@@ -18,22 +13,27 @@
    &__wrapper {
       width: 90%;
       margin: auto;
+      @include tablette-and-desktop{
+         display: flex;
+         flex-wrap: wrap;
+       }
  
       >div {
         background-color: #fff;
         display: flex;
-        flex-grow: 1;
         width: 100%;
         overflow: hidden;
         border-radius: 20px;
         box-shadow: 0px 3px 10px rgb(204, 203, 203);
         margin-bottom: 25px;
+        @include tablette-and-desktop{
+         width: 45%;
+         margin: 0 auto 50px;
+       }
       }
     }
 
    &__card {
-      color: #000;
-      text-decoration: none;
       width: 100%;
 
       &ImgWrapper {
@@ -44,6 +44,9 @@
          overflow: hidden;
          height: 200px;
          border-radius: 15px 15px 0 0;
+         @include desktop-only{
+            height: 250px;
+          }
 
          >img {
            width: 101%;
@@ -58,13 +61,15 @@
 
        >div.img-content {
          >p.new-restaurant {
-           position: absolute;
-           top: 0;
-           right: 15px;
-           font-size: 0.9em;
-           font-weight: bold;
-           padding: 7px 12px;
-           border-radius: 3px;
+            position: absolute;
+            top: 0;
+            right: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+            background-color: $color-tertiary;
+            color: darken($color-tertiary, 40%);
+            padding: 7px 12px;
+            border-radius: 3px;
          }
        }
       }
@@ -85,7 +90,7 @@
          align-items: center;
          padding-bottom: 10px;
 
-         i.heart-primary{
+         i.heart__primary{
            font-size: 1.5em;
            margin: 0;
            padding-right: 15px;
@@ -93,7 +98,7 @@
            width: 24px;
            height: 24px;
 
-           &:hover i.heart-secondary {
+           &:hover i.heart__secondary {
              clip: rect(0px,24px,24px,0px);
              background: linear-gradient(to bottom right, $color-secondary, $color-primary);
              background-clip: border-box;
@@ -101,7 +106,7 @@
              -webkit-text-fill-color: transparent;
            }
 
-           >i.heart-secondary{
+           >i.heart__secondary{
              position: absolute;
              top: 0; bottom: 0; left: 0; right: 0;
              margin: 0;
@@ -113,73 +118,205 @@
        }
       }
    }
-   //bgm
 }
 
-/************************************************************/
-/**************************MIXIN**************************/
-/************************************************************/
-@mixin restaurants(
-      $paramMixi: $restaurants
-      , $banImg__bg: map-get($restaurants, banImg__bg)
-      , $banImg__color: map-get($restaurants, banImg__color)
-      // BEMMixinParam
-   ){
-   @extend %restaurants;
 
-   &__title {
-      @extend %restaurants__title;
-   }
 
-   &__wrapper {
-      @extend %restaurants__wrapper;
-   }
 
-   &__card {
-      @extend %restaurants__card;
-      &ImgWrapper {
-         @extend %restaurants__cardImgWrapper;
-         .new-restaurant {
-            background-color: $banImg__bg;
-            color: $banImg__color;
-          }
-      }
-      &Body {
-         @extend %restaurants__cardBody;
-      }
-   }
-   //bgm
-}
+
+
 
 /************************************************************/
-/**************************FUNCTION**************************/
 /************************************************************/
-@function restaurants($defaultValues){
+
+/************************************************************/
+/************************************************************/
+
+// /************************************************************/
+// /**************************PLACEHOLDER**************************/
+// /************************************************************/
+// %restaurants{
+//    background-color: $grey-color;
+//    margin: auto;
+//    padding: 50px 0;
+
+//    &__title {
+//       font-size: 1.7em;
+//       width: 90%;
+//       margin: 0 auto 30px;
+      
+//    }
+
+//    &__wrapper {
+//       width: 90%;
+//       margin: auto;
+//       @include tablette-and-desktop{
+//          display: flex;
+//          flex-wrap: wrap;
+//        }
+ 
+//       >div {
+//         background-color: #fff;
+//         display: flex;
+//         width: 100%;
+//         overflow: hidden;
+//         border-radius: 20px;
+//         box-shadow: 0px 3px 10px rgb(204, 203, 203);
+//         margin-bottom: 25px;
+//         @include tablette-and-desktop{
+//          width: 45%;
+//          margin: 0 auto 50px;
+//        }
+//       }
+//     }
+
+//    &__card {
+//       width: 100%;
+
+//       &ImgWrapper {
+//          position: relative;
+
+//        >div.img-restaurant {
+//          position: relative;
+//          overflow: hidden;
+//          height: 200px;
+//          border-radius: 15px 15px 0 0;
+
+//          >img {
+//            width: 101%;
+//            height: 101%;
+//            position: absolute;
+//            top: 50%;
+//            left: 50%;
+//            transform: translate(-50%, -50%);
+//            object-fit: cover;
+//          }
+//        }
+
+//        >div.img-content {
+//          >p.new-restaurant {
+//            position: absolute;
+//            top: 0;
+//            right: 15px;
+//            font-size: 0.9em;
+//            font-weight: bold;
+//            padding: 7px 12px;
+//            border-radius: 3px;
+//          }
+//        }
+//       }
+
+//       &Body {
+//          display: flex;
+//          flex-direction: row;
+//          justify-content: space-between;
+//          margin: 10px;
+
+//        >div.restaurant-txt {
+//          >h4{margin: 5px 0;}
+//          >p{margin: 5px 0;}
+//        }
+
+//        >div.restaurant-heart {
+//          display: flex;
+//          align-items: center;
+//          padding-bottom: 10px;
+
+//          i.heart-primary{
+//            font-size: 1.5em;
+//            margin: 0;
+//            padding-right: 15px;
+//            position: relative;
+//            width: 24px;
+//            height: 24px;
+
+//            &:hover i.heart-secondary {
+//              clip: rect(0px,24px,24px,0px);
+//              background: linear-gradient(to bottom right, $color-secondary, $color-primary);
+//              background-clip: border-box;
+//              -webkit-background-clip: text;
+//              -webkit-text-fill-color: transparent;
+//            }
+
+//            >i.heart-secondary{
+//              position: absolute;
+//              top: 0; bottom: 0; left: 0; right: 0;
+//              margin: 0;
+//              padding-right: 15px;
+//              clip: rect(24px,24px,24px,0px);
+//              transition: clip 1s;
+//            }
+//          }
+//        }
+//       }
+//    }
+//    //bgm
+// }
+
+// /************************************************************/
+// /**************************MIXIN**************************/
+// /************************************************************/
+// @mixin restaurants(
+//       $paramMixi: $restaurants
+//       , $banImg__bg: map-get($restaurants, banImg__bg)
+//       , $banImg__color: map-get($restaurants, banImg__color)
+//       // BEMMixinParam
+//    ){
+//    @extend %restaurants;
+
+//    &__title {
+//       @extend %restaurants__title;
+//    }
+
+//    &__wrapper {
+//       @extend %restaurants__wrapper;
+//    }
+
+//    &__card {
+//       @extend %restaurants__card;
+//       &ImgWrapper {
+//          @extend %restaurants__cardImgWrapper;
+//          .new-restaurant {
+//             background-color: $banImg__bg;
+//             color: $banImg__color;
+//           }
+//       }
+//       &Body {
+//          @extend %restaurants__cardBody;
+//       }
+//    }
+//    //bgm
+// }
+
+// /************************************************************/
+// /**************************FUNCTION**************************/
+// /************************************************************/
+// @function restaurants($defaultValues){
    
-   @return ($defaultValues);
-}
+//    @return ($defaultValues);
+// }
 
-/******VARIABLES******/
-//POUR DÉFINIR DES VALEURS PAR DÉFAUT VIA UNE FONCTION
-$restaurants: restaurants((
-   banImg__bg: $color-tertiary
-   , banImg__color: darken($color-tertiary, 35%)
-));
-//POUR DÉFINIR DES VALEURS PAR DÉFAUT EN DUR VIA UNE MAP
-//SI DÉCOMMENTÉ, ÉCRASERA LA FUNCTION CI-DESSUS
-//$restaurants: ();
+// /******VARIABLES******/
+// //POUR DÉFINIR DES VALEURS PAR DÉFAUT VIA UNE FONCTION
+// $restaurants: restaurants((
+//    banImg__bg: $color-tertiary
+//    , banImg__color: darken($color-tertiary, 40%)
+// ));
+// //POUR DÉFINIR DES VALEURS PAR DÉFAUT EN DUR VIA UNE MAP
+// //SI DÉCOMMENTÉ, ÉCRASERA LA FUNCTION CI-DESSUS
+// //$restaurants: ();
 
-/*************************************
-VARIABLES PARAMÉTRABLE DU BLOC BEM
-EX: 
-box-shadow(color), background, border-color
-*************************************/
+// /*************************************
+// VARIABLES PARAMÉTRABLE DU BLOC BEM
+// EX: 
+// box-shadow(color), background, border-color
+// *************************************/
 
-/************************************************************/
-/**************************BLOC BEM (extension)**************************/
-/************************************************************/
-.restaurants{
-   @include restaurants(/*ICI, VOUS POUVEZ ÉCRASER LES VALEUR DE LA VARIABLES "$defaultValues"*/);
-   //bge
-   //bgm
-}
+// /************************************************************/
+// /**************************BLOC BEM (extension)**************************/
+// /************************************************************/
+// .restaurants{
+//    @include restaurants(/*ICI, VOUS POUVEZ ÉCRASER LES VALEUR DE LA VARIABLES "$defaultValues"*/);
+//    //bge
+//    //bgm
+// }

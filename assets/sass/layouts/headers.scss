@@ -1,1 +1,41 @@
 /**/
+
+.header {
+   margin-top: 15px;
+
+   &__home{
+     display: flex;
+     justify-content: center;
+   }
+
+   &__title{
+     margin: 5px 0;
+
+     >img{
+       width: 150px;
+     }
+   }
+
+   /*** Partie pour le header de la page menu avec l'item de flèche retour ***/
+   &__return{
+      position: relative;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+  
+        &Btn{
+          position: absolute;
+          left: 20px;
+          bottom: 15px;
+  
+            >a{
+              >i{
+                font-size: 1.4em;
+              }
+            }
+          }
+      }
+
+ }

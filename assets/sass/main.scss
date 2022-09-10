@@ -11,11 +11,19 @@
 @import "./base/typography";
 // @import "./vendors/";
 
+@import "./components/spinner/circle";
 @import "./components/buttons";
+@import "./components/buttons/primary";
+@import "./components/buttons/like";
 @import "./components/lists";
 @import "./components/cards";
+@import "./components/form/location";
+@import "./components/intro/presentation";
 @import "./components/lists/stages";
 @import "./components/listings/restaurants";
+@import "./components/banner";
+@import "./components/lists/dishs";
+@import "./components/lists/meals";
 
 @import "./layouts/headers";
 @import "./layouts/navs";

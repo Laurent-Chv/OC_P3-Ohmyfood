@@ -1,0 +1,47 @@
+.banner{
+  position: relative;
+    &__img{
+      width: 100%;
+      height: auto;
+      max-height: 450px;
+      position: relative;
+      object-fit: cover;
+      @include tablette-only{
+        max-height: 370px;
+      }
+      @include desktop-only{
+        max-height: 320px;
+      }
+    }
+    
+    &__wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 0 0;
+      background-color: $grey-color;
+      border-radius: 40px 40px 0 0;
+
+      &Title {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin: 5px auto;
+        @include tablette-only{
+          width: 80%;
+        }
+        @include desktop-only{
+          width: 70%;
+          max-width: 850px;
+        }
+        
+        >h2{
+          font-family: $police-logo_titles;
+          font-size: 1.6em;
+          margin: 0;
+        }
+
+      }
+    }
+  }

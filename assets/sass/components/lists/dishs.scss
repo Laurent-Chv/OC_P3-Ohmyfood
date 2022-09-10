@@ -1,0 +1,71 @@
+
+
+.dishs{
+   margin: auto;
+   padding-top: 10px;
+   background-color: $grey-color;
+
+   &__part{
+     width: 90%;
+     margin: 0 auto;
+     @include tablette-only{
+       width: 80%;
+     }
+     @include desktop-only{
+       width: 70%;
+       max-width: 850px;
+     }
+
+     &:nth-child(1){
+       animation: fadein 2s;
+     }
+     &:nth-child(2){
+       animation: fadein 4s;
+     }
+     &:nth-child(3){
+       animation: fadein 6s;
+     }
+
+     @keyframes fadein {
+       from {
+         opacity:0;
+       }
+       to {
+         opacity:1;
+       }
+     }
+
+     &Name{
+       font-size: 1em;
+       font-weight: normal;
+       text-transform: uppercase;
+       margin: 0;
+       padding: 20px 0 7px;
+     }
+
+     &Underline{
+       background-color: $color-tertiary;
+       width: 45px;
+       height: 4px;
+       margin-bottom: 15px;
+     }
+
+     &List{
+       display: flex;
+       flex-direction: column;
+       gap: 15px;
+     }
+   }
+
+  .order{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__btn {
+      margin: 30px auto 50px;
+      padding: 15px 50px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+
+
+.btn__primary {
+   background: linear-gradient(to bottom right, $color-secondary, $color-primary);
+   color: #fff;
+   border-radius: 70px;
+   box-shadow: 0px 3px 10px rgb(184, 182, 182);
+
+   &:hover{
+     box-shadow: 0px 5px 12px rgb(128, 126, 126);
+     transition: all 0.5s;
+     background: linear-gradient(to bottom right, $color-secondary, $color-secondary, $color-primary);
+   }
+ }

@@ -1,145 +1,219 @@
-
-
-
-/************************************************************/
-/**************************PLACEHOLDER**************************/
-/************************************************************/
-%stages{
-  margin: auto;
-  padding: 50px 0;
-
-  &__title {
-    font-size: 1.5em;
-    width: 90%;
-    margin: 0 auto 30px;
-  }
-
-  &__item {
-    width: 90%;
-    margin: 0 auto;
-    padding-left: 5%;
+.stages{
     margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 25px;
-    
-    &Nb {
-      position: absolute;
-
-      >p.stage-nb {
-        position: relative;
-        top: 5px;
-        right: 175px;
-        background-color: $color-primary;
-        color: #fff;
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-        font-size: 1em;
-        display: flex;
-        justify-content: center;
-        line-height: 1.7em;
-      }
-    }
-
-    &Btn{
-      width: 350px;
-      height: 70px;
+    padding: 50px 0;
+    @include desktop-only{
       display: flex;
-      align-items: center;
-      background-color: $grey-color;
-      border-radius: 20px;
-      box-shadow: 0px 3px 10px rgb(204, 203, 203);
-      transition: all 1s;
-
-      >i {
-        color: rgb(109, 106, 106);
-        font-size: 1.2em;
-        width: 40px;
-        margin-left: 35px;
-      }
-
-      p.stage-txt {
-        font-weight: bold;
-      }
+      flex-wrap: wrap;
     }
-  }
-  //bgm
-}
-
-/************************************************************/
-/**************************MIXIN**************************/
-/************************************************************/
-@mixin stages(
-    $paramMixi: $stages
-    , $btn__background: map-get($stages, btn__background)
-    , $item__color: map-get($stages, item__color)
-    // BEMMixinParam
-  ){
-  @extend %stages;
-
-  &__title {
-    @extend %stages__title;
-  }
-
-  &__item {
-    @extend %stages__item;
-    &Nb {
-      @extend %stages__itemNb;
+  
+    &__title {
+      font-size: 1.5em;
+      width: 90%;
+      margin: 0 auto 30px;
     }
-    &Btn {
-      @extend %stages__itemBtn;
-      &--lightness{
-        background-color: $btn__background;
-        >i{
-          color: $item__color;
+  
+    &__item {
+      width: 90%;
+      margin: 0 auto 25px;
+      display: flex;
+      justify-content: center;
+      @include desktop-only{
+        width: 28%;
+        margin: 10px auto 25px;
+        justify-content: flex-start;
+      }
+      
+      &Nb {
+        position: absolute;
+  
+        >p.stage-nb {
+          position: relative;
+          top: 5px;
+          right: 175px;
+          background-color: $color-primary;
+          color: #fff;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          font-size: 1em;
+          display: flex;
+          justify-content: center;
+          line-height: 1.7em;
+          @include desktop-only{
+            right: 50%;
+          }
+        }
+      }
+  
+      &Btn{
+        width: 350px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        background-color: $grey-color;
+        border-radius: 20px;
+        box-shadow: 0px 3px 10px rgb(204, 203, 203);
+        transition: all 0.7s;
+  
+        &:hover {
+          background-color: lighten($color-primary, 35%);
+  
+          >i{
+            color: $color-primary;
+          }
+        }
+  
+        >i {
+          color: rgb(109, 106, 106);
+          font-size: 1.2em;
+          width: 40px;
+          margin-left: 35px;
+        }
+  
+        p.stage-txt {
+          font-weight: bold;
         }
       }
     }
   }
-  //bgm
-}
 
-/************************************************************/
-/**************************FUNCTION**************************/
-/************************************************************/
-@function stages($defaultValues){
+
+// /************************************************************/
+// /**************************PLACEHOLDER**************************/
+// /************************************************************/
+// %stages{
+//   margin: auto;
+//   padding: 50px 0;
+//   @include desktop-only{
+//     display: flex;
+//     flex-wrap: wrap;
+//   }
+
+//   &__title {
+//     font-size: 1.5em;
+//     width: 90%;
+//     margin: 0 auto 30px;
+//   }
+
+//   &__item {
+//     width: 90%;
+//     margin: 0 auto 25px;
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: center;
+//     @include desktop-only{
+//       width: 28%;
+//       margin: 10px auto 25px;
+//     }
+    
+//     &Nb {
+//       position: absolute;
+
+//       >p.stage-nb {
+//         position: relative;
+//         top: 5px;
+//         right: 175px;
+//         background-color: $color-primary;
+//         color: #fff;
+//         width: 25px;
+//         height: 25px;
+//         border-radius: 50%;
+//         font-size: 1em;
+//         display: flex;
+//         justify-content: center;
+//         line-height: 1.7em;
+//       }
+//     }
+
+//     &Btn{
+//       width: 350px;
+//       height: 70px;
+//       display: flex;
+//       align-items: center;
+//       background-color: $grey-color;
+//       border-radius: 20px;
+//       box-shadow: 0px 3px 10px rgb(204, 203, 203);
+//       transition: all 0.7s;
+
+//       >i {
+//         color: rgb(109, 106, 106);
+//         font-size: 1.2em;
+//         width: 40px;
+//         margin-left: 35px;
+//       }
+
+//       p.stage-txt {
+//         font-weight: bold;
+//       }
+//     }
+//   }
+//   //bgm
+// }
+
+// /************************************************************/
+// /**************************MIXIN**************************/
+// /************************************************************/
+// @mixin stages(
+//     $paramMixi: $stages
+//     , $btn__background: map-get($stages, btn__background)
+//     , $item__color: map-get($stages, item__color)
+//     // BEMMixinParam
+//   ){
+//   @extend %stages;
+
+//   &__title {
+//     @extend %stages__title;
+//   }
+
+//   &__item {
+//     @extend %stages__item;
+//     &Nb {
+//       @extend %stages__itemNb;
+//     }
+//     &Btn {
+//       @extend %stages__itemBtn;
+//       &--lightness{
+//         background-color: $btn__background;
+//         >i{
+//           color: $item__color;
+//         }
+//       }
+//     }
+//   }
+//   //bgm
+// }
+
+// /************************************************************/
+// /**************************FUNCTION**************************/
+// /************************************************************/
+// @function stages($defaultValues){
   
-  @return ($defaultValues);
-}
+//   @return ($defaultValues);
+// }
 
-/******VARIABLES******/
-//POUR DÉFINIR DES VALEURS PAR DÉFAUT VIA UNE FONCTION
-$stages: stages((
-  btn__background: lighten($color-primary, 35%)
-  , item__color: $color-primary
-));
-//POUR DÉFINIR DES VALEURS PAR DÉFAUT EN DUR VIA UNE MAP
-//SI DÉCOMMENTÉ, ÉCRASERA LA FUNCTION CI-DESSUS
-//$stages: ();
+// /******VARIABLES******/
+// //POUR DÉFINIR DES VALEURS PAR DÉFAUT VIA UNE FONCTION
+// $stages: stages((
+//   btn__background: #fff
+//   , item__color: rgb(109, 106, 106)
+// ));
+// //POUR DÉFINIR DES VALEURS PAR DÉFAUT EN DUR VIA UNE MAP
+// //SI DÉCOMMENTÉ, ÉCRASERA LA FUNCTION CI-DESSUS
+// //$stages: ();
 
-/*************************************
-VARIABLES PARAMÉTRABLE DU BLOC BEM
-EX: 
-box-shadow(color), background, border-color
-*************************************/
+// /*************************************
+// VARIABLES PARAMÉTRABLE DU BLOC BEM
+// EX: 
+// box-shadow(color), background, border-color
+// *************************************/
 
-/************************************************************/
-/**************************BLOC BEM (extension)**************************/
-/************************************************************/
-.stages{
-  @include stages(/*ICI, VOUS POUVEZ ÉCRASER LES VALEUR DE LA VARIABLES \"\\$defaultValues\"*/);
-  // bge
-  // bgm
-}
+// /************************************************************/
+// /**************************BLOC BEM (extension)**************************/
+// /************************************************************/
+// .stages{
+//   @include stages($btn__background: lighten($color-primary, 35%), $item__color: $color-primary);
+//   &__itemBtn:hover{
+//     @extend .stages__itemBtn--lightness;
+//   }
+// }
 
-.stages__item{
-  @include stages(/*ICI, VOUS POUVEZ ÉCRASER LES VALEUR DE LA VARIABLES \"\\$defaultValues\"*/);
-  &Btn:hover{
-    @extend .stages__itemBtn--lightness;
-  }
-}
-
-        /**********************************/
-// Problème avec un ajout de padding entre les stages

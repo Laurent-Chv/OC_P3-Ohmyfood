@@ -332,33 +332,195 @@ a {
   text-decoration: none;
 }
 
-/**/ /**/
-/************************************************************/
-/**************************PLACEHOLDER**************************/
-/************************************************************/
-.stages__item, .stages {
+/**/
+.spinner__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  background: #fff;
+  animation: slide 3s 1 forwards;
+}
+@keyframes slide {
+  from {
+    opacity: 1;
+    z-index: 100;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+.spinner__wrapper::before {
+  content: "";
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+.spinner__wrapperLoading {
+  background-color: #99E2D0;
+  display: inline-block;
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border: 8px solid #9356DC;
+  border-radius: 50%;
+  border-top-color: #FF79DA;
+  animation: spin 1s ease-out infinite;
+  -webkit-animation: spin 1s ease-out infinite;
+  transition: all 0.7s;
+}
+@-webkit-keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    background: #9356DC;
+  }
+  50% {
+    transform: rotate(180deg);
+    background: #FF79DA;
+  }
+  100% {
+    transform: rotate(360deg);
+    background: #9356DC;
+  }
+}
+
+/**/
+.btn__primary {
+  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+  color: #fff;
+  border-radius: 70px;
+  box-shadow: 0px 3px 10px rgb(184, 182, 182);
+}
+.btn__primary:hover {
+  box-shadow: 0px 5px 12px rgb(128, 126, 126);
+  transition: all 0.5s;
+  background: linear-gradient(to bottom right, #FF79DA, #FF79DA, #9356DC);
+}
+
+.like {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.like__primary {
+  font-size: 1.5em;
+  margin: 0;
+  padding-right: 15px;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+.like__primary:hover .like__secondary {
+  clip: rect(0px, 24px, 24px, 0px);
+  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.like__primary > i.like__secondary {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding-right: 15px;
+  clip: rect(24px, 24px, 24px, 0px);
+  transition: clip 1s;
+}
+
+.location {
+  background-color: rgb(228, 228, 228);
+  border-top: 1px solid #ddd;
+  box-shadow: 0 2px 5px #999 inset;
+}
+.location__wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.location__wrapperDot {
+  position: absolute;
+  width: calc(50% - 75px);
+  display: flex;
+  justify-content: flex-end;
+}
+.location__wrapperDot > i {
+  font-size: 1em;
+  color: rgb(69, 69, 69);
+}
+.location__wrapperTxt {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+.location__wrapperTxt > p {
+  font-size: 1em;
+  font-weight: bold;
+  color: rgb(69, 69, 69);
+}
+
+.presentation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(245, 245, 245);
+}
+.presentation__title {
+  margin: 50px 50px 10px 50px;
+  font-size: 1.5em;
+}
+.presentation__txt {
+  margin: 10px 30px 35px 30px;
+  font-size: 1.2em;
+  color: rgb(69, 69, 69);
+}
+.presentation__btn {
+  margin-bottom: 60px;
+  padding: 15px 25px;
+}
+
+.stages {
   margin: auto;
   padding: 50px 0;
 }
-.stages__item__title, .stages__title {
+@media screen and (min-width: 992px) {
+  .stages {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.stages__title {
   font-size: 1.5em;
   width: 90%;
   margin: 0 auto 30px;
 }
-.stages__item__item, .stages__item {
+.stages__item {
   width: 90%;
-  margin: 0 auto;
-  padding-left: 5%;
-  margin: auto;
+  margin: 0 auto 25px;
   display: flex;
-  flex-direction: row;
   justify-content: center;
-  margin-bottom: 25px;
 }
-.stages__item__itemNb, .stages__itemNb {
+@media screen and (min-width: 992px) {
+  .stages__item {
+    width: 28%;
+    margin: 10px auto 25px;
+    justify-content: flex-start;
+  }
+}
+.stages__itemNb {
   position: absolute;
 }
-.stages__item__itemNb > p.stage-nb, .stages__itemNb > p.stage-nb {
+.stages__itemNb > p.stage-nb {
   position: relative;
   top: 5px;
   right: 175px;
@@ -372,7 +534,12 @@ a {
   justify-content: center;
   line-height: 1.7em;
 }
-.stages__item__itemBtn, .stages__itemBtn {
+@media screen and (min-width: 992px) {
+  .stages__itemNb > p.stage-nb {
+    right: 50%;
+  }
+}
+.stages__itemBtn {
   width: 350px;
   height: 70px;
   display: flex;
@@ -380,50 +547,24 @@ a {
   background-color: rgb(245, 245, 245);
   border-radius: 20px;
   box-shadow: 0px 3px 10px rgb(204, 203, 203);
-  transition: all 1s;
+  transition: all 0.7s;
 }
-.stages__item__itemBtn > i, .stages__itemBtn > i {
+.stages__itemBtn:hover {
+  background-color: #f2eafb;
+}
+.stages__itemBtn:hover > i {
+  color: #9356DC;
+}
+.stages__itemBtn > i {
   color: rgb(109, 106, 106);
   font-size: 1.2em;
   width: 40px;
   margin-left: 35px;
 }
-.stages__item__itemBtn p.stage-txt, .stages__itemBtn p.stage-txt {
+.stages__itemBtn p.stage-txt {
   font-weight: bold;
 }
 
-/************************************************************/
-/**************************MIXIN**************************/
-/************************************************************/
-/************************************************************/
-/**************************FUNCTION**************************/
-/************************************************************/
-/******VARIABLES******/
-/*************************************
-VARIABLES PARAMÉTRABLE DU BLOC BEM
-EX: 
-box-shadow(color), background, border-color
-*************************************/
-/************************************************************/
-/**************************BLOC BEM (extension)**************************/
-/************************************************************/
-.stages__itemBtn--lightness, .stages__itemBtn:hover {
-  background-color: #f2eafb;
-}
-.stages__itemBtn--lightness > i, .stages__itemBtn:hover > i {
-  color: #9356DC;
-}
-
-.stages__item__itemBtn--lightness {
-  background-color: #f2eafb;
-}
-.stages__item__itemBtn--lightness > i {
-  color: #9356DC;
-}
-/**********************************/
-/************************************************************/
-/**************************PLACEHOLDER**************************/
-/************************************************************/
 .restaurants {
   background-color: rgb(245, 245, 245);
   margin: auto;
@@ -438,19 +579,28 @@ box-shadow(color), background, border-color
   width: 90%;
   margin: auto;
 }
+@media screen and (min-width: 768px) {
+  .restaurants__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 .restaurants__wrapper > div {
   background-color: #fff;
   display: flex;
-  flex-grow: 1;
   width: 100%;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0px 3px 10px rgb(204, 203, 203);
   margin-bottom: 25px;
 }
+@media screen and (min-width: 768px) {
+  .restaurants__wrapper > div {
+    width: 45%;
+    margin: 0 auto 50px;
+  }
+}
 .restaurants__card {
-  color: #000;
-  text-decoration: none;
   width: 100%;
 }
 .restaurants__cardImgWrapper {
@@ -461,6 +611,11 @@ box-shadow(color), background, border-color
   overflow: hidden;
   height: 200px;
   border-radius: 15px 15px 0 0;
+}
+@media screen and (min-width: 992px) {
+  .restaurants__cardImgWrapper > div.img-restaurant {
+    height: 250px;
+  }
 }
 .restaurants__cardImgWrapper > div.img-restaurant > img {
   width: 101%;
@@ -477,6 +632,8 @@ box-shadow(color), background, border-color
   right: 15px;
   font-size: 0.9em;
   font-weight: bold;
+  background-color: #99E2D0;
+  color: #278870;
   padding: 7px 12px;
   border-radius: 3px;
 }
@@ -497,7 +654,7 @@ box-shadow(color), background, border-color
   align-items: center;
   padding-bottom: 10px;
 }
-.restaurants__cardBody > div.restaurant-heart i.heart-primary {
+.restaurants__cardBody > div.restaurant-heart i.heart__primary {
   font-size: 1.5em;
   margin: 0;
   padding-right: 15px;
@@ -505,14 +662,14 @@ box-shadow(color), background, border-color
   width: 24px;
   height: 24px;
 }
-.restaurants__cardBody > div.restaurant-heart i.heart-primary:hover i.heart-secondary {
+.restaurants__cardBody > div.restaurant-heart i.heart__primary:hover i.heart__secondary {
   clip: rect(0px, 24px, 24px, 0px);
   background: linear-gradient(to bottom right, #FF79DA, #9356DC);
   background-clip: border-box;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.restaurants__cardBody > div.restaurant-heart i.heart-primary > i.heart-secondary {
+.restaurants__cardBody > div.restaurant-heart i.heart__primary > i.heart__secondary {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -525,75 +682,30 @@ box-shadow(color), background, border-color
 }
 
 /************************************************************/
-/**************************MIXIN**************************/
 /************************************************************/
 /************************************************************/
-/**************************FUNCTION**************************/
 /************************************************************/
-/******VARIABLES******/
-/*************************************
-VARIABLES PARAMÉTRABLE DU BLOC BEM
-EX: 
-box-shadow(color), background, border-color
-*************************************/
-/************************************************************/
-/**************************BLOC BEM (extension)**************************/
-/************************************************************/
-.restaurants__cardImgWrapper .new-restaurant {
-  background-color: #99E2D0;
-  color: #2c9c81;
-}
-/**/
-/***********************************/
-/***********************************/
-/***********************************/
-/***********************************/
-/***********************************/
-/***********************************/
-/***********************************/
-body {
-  font-family: "Raleway", sans-serif;
-}
-body > header {
-  margin-top: 15px;
-}
-body > header > div.return-acceuil {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-body > header > div.return-acceuil > div.return-btn {
-  position: absolute;
-  left: 20px;
-  bottom: 15px;
-}
-body > header > div.return-acceuil > div.return-btn > a {
-  text-decoration: none;
-  color: #000;
-}
-body > header > div.return-acceuil > div.return-btn > a > i {
-  font-size: 1.4em;
-}
-body > header > div.return-acceuil > h1 {
-  margin: 5px 0;
-}
-body > header > div.return-acceuil > h1 > img {
-  width: 150px;
-}
-body > main > section.banner > div.banner-wrapper {
+.banner {
   position: relative;
 }
-body > main > section.banner > div.banner-wrapper > img {
+.banner__img {
   width: 100%;
   height: auto;
   max-height: 450px;
   position: relative;
   object-fit: cover;
 }
-body > main > section.banner > div.banner-wrapper > div.banner-title {
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .banner__img {
+    max-height: 370px;
+  }
+}
+@media screen and (min-width: 992px) {
+  .banner__img {
+    max-height: 320px;
+  }
+}
+.banner__wrapper {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -602,68 +714,56 @@ body > main > section.banner > div.banner-wrapper > div.banner-title {
   background-color: rgb(245, 245, 245);
   border-radius: 40px 40px 0 0;
 }
-body > main > section.banner > div.banner-wrapper > div.banner-title > div.title {
+.banner__wrapperTitle {
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: 5px auto;
 }
-body > main > section.banner > div.banner-wrapper > div.banner-title > div.title > h2 {
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .banner__wrapperTitle {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .banner__wrapperTitle {
+    width: 70%;
+    max-width: 850px;
+  }
+}
+.banner__wrapperTitle > h2 {
   font-family: "Shrikhand", "cursive";
   font-size: 1.6em;
   margin: 0;
 }
-body > main > section.banner > div.banner-wrapper > div.banner-title > div.title div.heart-animation {
-  position: relative;
-  width: 24px;
-  height: 24px;
-}
-body > main > section.banner > div.banner-wrapper > div.banner-title > div.title div.heart-animation > a {
-  text-decoration: none;
-  color: #000;
-}
-body > main > section.banner > div.banner-wrapper > div.banner-title > div.title div.heart-animation > a i.heart-primary {
-  font-size: 1.5em;
-  margin: 0;
-  padding-right: 15px;
-  position: relative;
-  width: 24px;
-  height: 24px;
-}
-body > main > section.banner > div.banner-wrapper > div.banner-title > div.title div.heart-animation > a i.heart-primary:hover i.heart-secondary {
-  clip: rect(0px, 24px, 24px, 0px);
-  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
-  background-clip: border-box;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-body > main > section.banner > div.banner-wrapper > div.banner-title > div.title div.heart-animation > a i.heart-primary > i.heart-secondary {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
-  padding-right: 15px;
-  clip: rect(24px, 24px, 24px, 0px);
-  transition: clip 1s;
-}
-body > main > section.meals {
+
+.dishs {
   margin: auto;
   padding-top: 10px;
   background-color: rgb(245, 245, 245);
 }
-body > main > section.meals > article {
+.dishs__part {
   width: 90%;
   margin: 0 auto;
 }
-body > main > section.meals > article:nth-child(1) {
+@media screen and (min-width: 769px) and (max-width: 991px) {
+  .dishs__part {
+    width: 80%;
+  }
+}
+@media screen and (min-width: 992px) {
+  .dishs__part {
+    width: 70%;
+    max-width: 850px;
+  }
+}
+.dishs__part:nth-child(1) {
   animation: fadein 2s;
 }
-body > main > section.meals > article:nth-child(2) {
+.dishs__part:nth-child(2) {
   animation: fadein 4s;
 }
-body > main > section.meals > article:nth-child(3) {
+.dishs__part:nth-child(3) {
   animation: fadein 6s;
 }
 @keyframes fadein {
@@ -674,51 +774,59 @@ body > main > section.meals > article:nth-child(3) {
     opacity: 1;
   }
 }
-body > main > section.meals > article > h3.meal-categorie {
+.dishs__partName {
   font-size: 1em;
   font-weight: normal;
   text-transform: uppercase;
   margin: 0;
   padding: 20px 0 7px;
 }
-body > main > section.meals > article > div.underline-title {
+.dishs__partUnderline {
   background-color: #99E2D0;
   width: 45px;
   height: 4px;
   margin-bottom: 15px;
 }
-body > main > section.meals > article > ul {
-  padding: 0;
+.dishs__partList {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-body > main > section.meals > article > ul > li.meal-body {
+.dishs .order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.dishs .order__btn {
+  margin: 30px auto 50px;
+  padding: 15px 50px;
+}
+
+.meals {
   background-color: #fff;
   border-radius: 15px;
   box-shadow: 0px 3px 10px rgb(204, 203, 203);
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link {
-  text-decoration: none;
-  color: #000;
+.meals__body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link:hover div.meal-check {
+.meals__body:hover .meals__bodyDetails--check {
   width: 60px !important;
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link:hover div.meal-check i {
+.meals__body:hover .meals__bodyDetails--check i {
   transform: rotate(360deg);
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link > div.meal-txt {
+.meals__bodyTxt {
   display: flex;
   flex-direction: column;
   margin: 12px 10px;
   white-space: nowrap;
   overflow: hidden;
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link > div.meal-txt > h4.meal-name {
+.meals__bodyTxt--title {
   margin: 0;
   margin-bottom: 5px;
   font-size: 1.1em;
@@ -726,27 +834,27 @@ body > main > section.meals > article > ul > li.meal-body > a.meal-link > div.me
   overflow: hidden;
   text-overflow: ellipsis;
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link > div.meal-txt > p.meal-components {
+.meals__bodyTxt--components {
   margin: 0;
   font-size: 0.9em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link > div.meal-details {
+.meals__bodyDetails {
   display: flex;
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link > div.meal-details > div.meal-price {
+.meals__bodyDetails--price {
   height: 100%;
   display: flex;
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link > div.meal-details > div.meal-price > p {
+.meals__bodyDetails--price > p.price {
   margin: 12px 10px;
   font-size: 0.9em;
   font-weight: bold;
   align-self: flex-end;
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link > div.meal-details > div.meal-check {
+.meals__bodyDetails--check {
   height: 100%;
   background-color: #99E2D0;
   border-radius: 0 15px 15px 0;
@@ -755,231 +863,75 @@ body > main > section.meals > article > ul > li.meal-body > a.meal-link > div.me
   overflow: hidden;
   transition: all 0.5s;
 }
-body > main > section.meals > article > ul > li.meal-body > a.meal-link > div.meal-details > div.meal-check > i {
+.meals__bodyDetails--check > i {
   color: #fff;
   font-size: 1.2em;
   margin: auto;
   align-self: center;
   transition: all 0.5s;
 }
-body > main > section.meals > div.btn-primary-wrapper {
+
+/**/
+.header {
+  margin-top: 15px;
+  /*** Partie pour le header de la page menu avec l'item de flèche retour ***/
+}
+.header__home {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+}
+.header__title {
+  margin: 5px 0;
+}
+.header__title > img {
+  width: 150px;
+}
+.header__return {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  text-align: center;
+  justify-content: center;
 }
-body > main > section.meals > div.btn-primary-wrapper > a.btn-primary {
-  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
-  color: #fff;
-  text-decoration: none;
-  margin: 30px auto 50px;
-  padding: 15px 50px;
-  border-radius: 70px;
-  box-shadow: 0px 3px 10px rgb(184, 182, 182);
+.header__returnBtn {
+  position: absolute;
+  left: 20px;
+  bottom: 15px;
 }
-body > main > section.meals > div.btn-primary-wrapper > a.btn-primary:hover {
-  box-shadow: 0px 5px 12px rgb(128, 126, 126);
-  transition: all 0.5s;
-  background: linear-gradient(to bottom right, #FF79DA, #FF79DA, #9356DC);
+.header__returnBtn > a > i {
+  font-size: 1.4em;
 }
-body > footer {
+
+footer {
   background-color: rgb(53, 53, 53);
   color: #fff;
   padding: 30px 0 15px;
 }
-body > footer > h5 {
+footer > h5 {
   font-family: "Shrikhand", "cursive";
   font-size: 1.3rem;
   margin: 0;
   padding-left: 30px;
 }
-body > footer > div {
+footer > div {
   margin: 25px 30px;
   padding: 0;
 }
-body > footer > div > ul {
-  margin: 0;
-  padding: 0;
-}
-body > footer > div > ul > li {
+footer > div > ul > li {
   list-style-type: none;
   margin: 10px 0;
 }
-body > footer > div > ul > li > a {
-  text-decoration: none;
+footer > div > ul > li > a {
   color: #fff;
 }
-body > footer > div > ul > li > a > i.fa-solid {
+footer > div > ul > li > a > i.fa-solid {
   color: #fff;
   width: 30px;
 }
 
-/***********************************/
-/***********************************/
-/***********************************/
-/***********************************/
 body {
   font-family: "Raleway", sans-serif;
-}
-body > div.spinner-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  text-align: center;
-  background: #fff;
-  animation: slide 3s 1 forwards;
-  transition: all 1s;
-}
-@keyframes slide {
-  from {
-    opacity: 1;
-    z-index: 100;
-  }
-  50% {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    z-index: -1;
-  }
-}
-body > div.spinner-container::before {
-  content: "";
-  height: 100%;
-  display: inline-block;
-  vertical-align: middle;
-}
-body > div.spinner-container > div.loading {
-  background-color: #99E2D0;
-  display: inline-block;
-  vertical-align: middle;
-  width: 100px;
-  height: 100px;
-  border: 8px solid #9356DC;
-  border-radius: 50%;
-  border-top-color: #FF79DA;
-  animation: spin 1s ease-out infinite;
-  -webkit-animation: spin 1s ease-out infinite;
-}
-@-webkit-keyframes spin {
-  0% {
-    transform: rotate(0deg);
-    background: #9356DC;
-  }
-  50% {
-    transform: rotate(180deg);
-    background: #FF79DA;
-  }
-  100% {
-    transform: rotate(360deg);
-    background: #9356DC;
-  }
-}
-body header {
-  display: flex;
-  justify-content: center;
-  margin-top: 15px;
-}
-body header > h1 {
-  margin: 5px 0;
-}
-body header > h1 > img {
-  width: 150px;
-}
-body main > section.location {
-  background-color: rgb(228, 228, 228);
-  border-top: 1px solid #ddd;
-  box-shadow: 0 2px 5px #999 inset;
-}
-body main > section.location > div.location-wrapper {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-body main > section.location > div.location-wrapper > div.location-dot {
-  position: absolute;
-  width: calc(50% - 75px);
-  display: flex;
-  justify-content: flex-end;
-}
-body main > section.location > div.location-wrapper > div.location-dot > i {
-  font-size: 1em;
-  color: rgb(69, 69, 69);
-}
-body main > section.location > div.location-wrapper > div.location-txt {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  position: relative;
-}
-body main > section.location > div.location-wrapper > div.location-txt > p {
-  font-size: 1em;
-  font-weight: bold;
-  color: rgb(69, 69, 69);
-}
-body main > section.description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  background-color: rgb(245, 245, 245);
-}
-body main > section.description > h2 {
-  margin: 50px 50px 10px 50px;
-  font-size: 1.5em;
-}
-body main > section.description > p {
-  margin: 10px 30px 35px 30px;
-  font-size: 1.2em;
-  color: rgb(69, 69, 69);
-}
-body main > section.description > a.btn-primary {
-  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
-  color: #fff;
-  text-decoration: none;
-  margin-bottom: 60px;
-  padding: 15px 25px;
-  border-radius: 70px;
-  box-shadow: 0px 3px 10px rgb(184, 182, 182);
-}
-body main > section.description > a.btn-primary:hover {
-  box-shadow: 0px 5px 12px rgb(128, 126, 126);
-  transition: all 0.5s;
-  background: linear-gradient(to bottom right, #FF79DA, #FF79DA, #9356DC);
-}
-body footer {
-  background-color: rgb(53, 53, 53);
-  color: #fff;
-  padding: 30px 0 15px;
-}
-body footer > h5 {
-  font-family: "Shrikhand", "cursive";
-  font-size: 1.3rem;
-  margin: 0;
-  padding-left: 30px;
-}
-body footer > div {
-  margin: 25px 30px;
-  padding: 0;
-}
-body footer > div > ul {
-  margin: 0;
-  padding: 0;
-}
-body footer > div > ul > li {
-  list-style-type: none;
-  margin: 10px 0;
-}
-body footer > div > ul > li > a {
-  text-decoration: none;
-  color: #fff;
-}
-body footer > div > ul > li > a > i.fa-solid {
-  color: #fff;
-  width: 30px;
 }
 
 /*# sourceMappingURL=index.css.map */

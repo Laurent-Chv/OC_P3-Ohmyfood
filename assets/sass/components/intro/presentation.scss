@@ -1,0 +1,27 @@
+
+
+.presentation{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   background-color: $grey-color;
+
+   &__title {
+      margin: 50px 50px 10px 50px;
+      font-size: 1.5em;
+   }
+
+   &__txt {
+      margin: 10px 30px 35px 30px;
+      font-size: 1.2em;
+      color: rgb(69, 69, 69);
+   }
+
+   &__btn {
+      margin-bottom: 60px;
+      padding: 15px 25px;
+   }
+}
+
+
