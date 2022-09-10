@@ -1,4 +1,4 @@
-/**/
+/*Header commun à toutes les pages*/
 
 .header {
    margin-top: 15px;
@@ -16,7 +16,7 @@
      }
    }
 
-   /*** Partie pour le header de la page menu avec l'item de flèche retour ***/
+/*** Partie pour le header de la page menu avec l'item de flèche retour ***/
    &__return{
       position: relative;
       width: 100%;

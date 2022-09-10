@@ -1,14 +1,14 @@
-
+/*Bouton like en forme de coeur qui se remplis progressivement avec dégradé de couleur selon charte graphique*/
 
 .like {
    position: relative;
    width: 24px;
    height: 24px;
+   margin-right: 15px;
 
    &__primary{
       font-size: 1.5em;
       margin: 0;
-      padding-right: 15px;
       position: relative;
       width: 24px;
       height: 24px;

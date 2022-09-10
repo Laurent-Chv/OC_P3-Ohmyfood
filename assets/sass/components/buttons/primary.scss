@@ -1,4 +1,5 @@
-
+/*Bouton principal avec dégradé de couleur et ombre portée*/
+/*Un hover change la couleur du dégradé (plus clair ici) et ombre portée plus marquée*/
 
 .btn__primary {
    background: linear-gradient(to bottom right, $color-secondary, $color-primary);

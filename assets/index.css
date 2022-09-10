@@ -332,7 +332,10 @@ a {
   text-decoration: none;
 }
 
-/**/
+/*Fonts selon charte graphique*/
+/* Font "Shrikhand" */
+/* Font "Roboto" */
+/*Loading spinner de forme cerculaire avec changement de couleurs selon charte graphique*/
 .spinner__wrapper {
   position: fixed;
   top: 0;
@@ -390,7 +393,8 @@ a {
   }
 }
 
-/**/
+/**/ /*Bouton principal avec dégradé de couleur et ombre portée*/
+/*Un hover change la couleur du dégradé (plus clair ici) et ombre portée plus marquée*/
 .btn__primary {
   background: linear-gradient(to bottom right, #FF79DA, #9356DC);
   color: #fff;
@@ -403,15 +407,16 @@ a {
   background: linear-gradient(to bottom right, #FF79DA, #FF79DA, #9356DC);
 }
 
+/*Bouton like en forme de coeur qui se remplis progressivement avec dégradé de couleur selon charte graphique*/
 .like {
   position: relative;
   width: 24px;
   height: 24px;
+  margin-right: 15px;
 }
 .like__primary {
   font-size: 1.5em;
   margin: 0;
-  padding-right: 15px;
   position: relative;
   width: 24px;
   height: 24px;
@@ -435,6 +440,8 @@ a {
   transition: clip 1s;
 }
 
+/*Partie localisation des restaurants*/
+/*Devra être éditable afin de trouver des restaurants proches d’un certain lieu*/
 .location {
   background-color: rgb(228, 228, 228);
   border-top: 1px solid #ddd;
@@ -468,6 +475,7 @@ a {
   color: rgb(69, 69, 69);
 }
 
+/*Courte présentation de l’entreprise*/
 .presentation {
   display: flex;
   flex-direction: column;
@@ -565,6 +573,7 @@ a {
   font-weight: bold;
 }
 
+/*Cards clicable pour les restaurants qui renvoi vers le menu dudit restaurant*/
 .restaurants {
   background-color: rgb(245, 245, 245);
   margin: auto;
@@ -651,40 +660,11 @@ a {
 }
 .restaurants__cardBody > div.restaurant-heart {
   display: flex;
-  align-items: center;
-  padding-bottom: 10px;
-}
-.restaurants__cardBody > div.restaurant-heart i.heart__primary {
-  font-size: 1.5em;
-  margin: 0;
-  padding-right: 15px;
-  position: relative;
-  width: 24px;
-  height: 24px;
-}
-.restaurants__cardBody > div.restaurant-heart i.heart__primary:hover i.heart__secondary {
-  clip: rect(0px, 24px, 24px, 0px);
-  background: linear-gradient(to bottom right, #FF79DA, #9356DC);
-  background-clip: border-box;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.restaurants__cardBody > div.restaurant-heart i.heart__primary > i.heart__secondary {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 0;
-  padding-right: 15px;
-  clip: rect(24px, 24px, 24px, 0px);
-  transition: clip 1s;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-/************************************************************/
-/************************************************************/
-/************************************************************/
-/************************************************************/
+/*Bannière de présentation avec image*/
 .banner {
   position: relative;
 }
@@ -737,10 +717,12 @@ a {
   margin: 0;
 }
 
+/*Partie menu avec effet d'appararition progressive avec un léger décalage dans le temps (par groupe)*/
 .dishs {
   margin: auto;
   padding-top: 10px;
   background-color: rgb(245, 245, 245);
+  /*Style spécifique au bouton "Commander" */
 }
 .dishs__part {
   width: 90%;
@@ -794,15 +776,15 @@ a {
 }
 .dishs .order {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 .dishs .order__btn {
-  margin: 30px auto 50px;
+  margin: 50px auto 80px;
   padding: 15px 50px;
 }
 
+/*Partie plats avec un effet simulé de validation*/
+/*La validation apparaît en coulissant de la droite vers la gauche avec une rotation.
+L'effet se déclanche au survol*/
 .meals {
   background-color: #fff;
   border-radius: 15px;
@@ -871,7 +853,7 @@ a {
   transition: all 0.5s;
 }
 
-/**/
+/*Header commun à toutes les pages*/
 .header {
   margin-top: 15px;
   /*** Partie pour le header de la page menu avec l'item de flèche retour ***/
@@ -903,6 +885,7 @@ a {
   font-size: 1.4em;
 }
 
+/*Footer commun à toutes les pages*/
 footer {
   background-color: rgb(53, 53, 53);
   color: #fff;

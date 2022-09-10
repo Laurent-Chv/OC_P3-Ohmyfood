@@ -1,4 +1,4 @@
-
+/*Partie menu avec effet d'appararition progressive avec un léger décalage dans le temps (par groupe)*/
 
 .dishs{
    margin: auto;
@@ -57,14 +57,13 @@
      }
    }
 
+
+/*Style spécifique au bouton "Commander" */ 
   .order{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
 
     &__btn {
-      margin: 30px auto 50px;
+      margin: 50px auto 80px;
       padding: 15px 50px;
     }
   }
