@@ -318,10 +318,6 @@ ul {
 }
 
 /**/
-:root {
-  font-family: "typography des contenus";
-}
-
 ul, ol {
   margin: 0;
   padding: 0;
@@ -522,6 +518,7 @@ a {
   .stages__item {
     width: 28%;
     margin: 10px auto 25px;
+    padding-left: 2vw;
     justify-content: flex-start;
   }
 }
